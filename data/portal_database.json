@@ -1,0 +1,46 @@
+{
+  "users": [
+    {
+      "id": "user-student-1",
+      "name": "Alex Rivera",
+      "email": "student@eduquiz.com",
+      "passwordHash": "$2b$10$nwYkJbmv6fSaPfrjlCHDcuyRuoCNInwdyJD7VfLyQeOkUvpd14bxq",
+      "role": "student",
+      "createdAt": "2026-09-15T05:46:31.349Z",
+      "isBlocked": false,
+      "forceLoggedOutAt": "2026-09-15T07:33:34.707Z"
+    },
+    {
+      "id": "user-admin-faizan",
+      "name": "Muhammad Faizan",
+      "email": "mf0622192@gmail.com",
+      "passwordHash": "$2b$10$365cNWdV7lEpTbbsjkJZIOUqV8F/tRCPFbmEqYtXSXozNAJaUfm12",
+      "role": "admin",
+      "isBlocked": false,
+      "createdAt": "2026-09-15T06:54:46.726Z"
+    },
+    {
+      "id": "user-1789456627582-9qs2b",
+      "name": "Muhammad Faizan",
+      "email": "fizzaathar01@gmail.com",
+      "passwordHash": "$2b$10$NKg7jDFIfUWr9EWiRlqhTeVhxfkMEd905h/AdtMj.txAZ3bSfUZpq",
+      "role": "student",
+      "createdAt": "2026-09-15T07:17:07.582Z"
+    }
+  ],
+  "quizzes": [],
+  "attempts": [],
+  "emailLogs": [],
+  "messages": [
+    {
+      "senderId": "user-student-1",
+      "senderName": "Alex Rivera",
+      "senderEmail": "student@eduquiz.com",
+      "subject": "as a result",
+      "message": "as a result",
+      "id": "msg-1789456082607-p862",
+      "status": "unread",
+      "createdAt": "2026-09-15T07:08:02.607Z"
+    }
+  ]
+}

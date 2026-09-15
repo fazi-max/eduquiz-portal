@@ -1,0 +1,120 @@
+// EduQuiz Portal - Prisma Schema for PostgreSQL
+// Use with: npx prisma db push / npx prisma migrate dev
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  STUDENT
+  INSTRUCTOR
+  ADMIN
+}
+
+enum Difficulty {
+  BEGINNER
+  INTERMEDIATE
+  ADVANCED
+}
+
+model User {
+  id           String    @id @default(uuid())
+  name         String
+  email        String    @unique
+  passwordHash String
+  role         Role      @default(STUDENT)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  quizzes      Quiz[]    @relation("CreatedQuizzes")
+  attempts     Attempt[]
+
+  @@map("users")
+}
+
+model Quiz {
+  id                String       @id @default(uuid())
+  title             String
+  slug              String       @unique
+  description       String
+  category          String
+  difficulty        Difficulty   @default(INTERMEDIATE)
+  timeLimitMinutes  Int          @default(10)
+  totalMarks        Int          @default(100)
+  passingPercentage Float        @default(60.0)
+  isPublished       Boolean      @default(true)
+  createdById       String
+  createdBy         User         @relation("CreatedQuizzes", fields: [createdById], references: [id])
+  questions         Question[]
+  attempts          Attempt[]
+  createdAt         DateTime     @default(now())
+  updatedAt         DateTime     @updatedAt
+
+  @@map("quizzes")
+}
+
+model Question {
+  id                 String   @id @default(uuid())
+  quizId             String
+  quiz               Quiz     @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  questionText       String
+  options            String[] // PostgreSQL array of text
+  correctOptionIndex Int      // Stored securely on server
+  explanation        String   @default("")
+  marks              Int      @default(1)
+  order              Int      @default(0)
+
+  @@map("questions")
+}
+
+model Attempt {
+  id                      String        @id @default(uuid())
+  userId                  String
+  user                    User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  quizId                  String
+  quiz                    Quiz          @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  score                   Int
+  totalMarks              Int
+  percentage              Float
+  passed                  Boolean
+  correctAnswersCount     Int
+  incorrectAnswersCount   Int
+  unansweredCount         Int
+  timeSpentSeconds        Int
+  emailSentUser           Boolean       @default(false)
+  emailSentAdmin          Boolean       @default(false)
+  answers                 UserAnswer[]
+  submittedAt             DateTime      @default(now())
+
+  @@map("attempts")
+}
+
+model UserAnswer {
+  id                  String   @id @default(uuid())
+  attemptId           String
+  attempt             Attempt  @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+  questionId          String
+  selectedOptionIndex Int?
+  isCorrect           Boolean
+  marksAwarded        Int
+
+  @@map("user_answers")
+}
+
+model EmailLog {
+  id             String   @id @default(uuid())
+  attemptId      String
+  recipientEmail String
+  recipientType  String   // "user" or "admin"
+  subject        String
+  htmlContent    String
+  status         String   // "sent" | "simulated" | "failed"
+  errorMessage   String?
+  timestamp      DateTime @default(now())
+
+  @@map("email_logs")
+}

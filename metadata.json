@@ -1,0 +1,6 @@
+{
+  "name": "EduQuiz Portal",
+  "description": "A secure, responsive full-stack Web-Based Quiz Portal with user authentication, interactive timed quizzes, automated evaluation, database tracking, and SMTP email notifications.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
