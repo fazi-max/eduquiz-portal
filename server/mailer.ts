@@ -1,5 +1,7 @@
-import nodemailer, { Transporter } from 'nodemailer';
-import { db, QuizAttempt } from './db';
+import nodemailer from 'nodemailer';
+import type { Transporter } from 'nodemailer';
+import { db } from './db.ts';
+import type { QuizAttempt } from './db.ts';
 
 interface EmailResult {
   sentToUser: boolean;

@@ -14,7 +14,7 @@
       "id": "user-admin-faizan",
       "name": "Muhammad Faizan",
       "email": "mf0622192@gmail.com",
-      "passwordHash": "$2b$10$365cNWdV7lEpTbbsjkJZIOUqV8F/tRCPFbmEqYtXSXozNAJaUfm12",
+      "passwordHash": "$2b$10$4hzQ.5rQlcyWMdb2D2HBc.BwjnbivFbaRJ2c6vAl7cA9qdzjJgWqW",
       "role": "admin",
       "isBlocked": false,
       "createdAt": "2026-09-15T06:54:46.726Z"
@@ -28,9 +28,94 @@
       "createdAt": "2026-09-15T07:17:07.582Z"
     }
   ],
-  "quizzes": [],
-  "attempts": [],
-  "emailLogs": [],
+  "quizzes": [
+    {
+      "title": "Chemistry",
+      "description": "Test Preparation MCQs",
+      "category": "Chemistry",
+      "difficulty": "Intermediate",
+      "timeLimitMinutes": 20,
+      "passingPercentage": 50,
+      "totalMarks": 1,
+      "questions": [
+        {
+          "id": "q-1789617749697-1",
+          "questionText": "Chemistry is the branch of:",
+          "options": [
+            "Science",
+            "Mathematics",
+            "English",
+            "Computer"
+          ],
+          "correctOptionIndex": 0,
+          "explanation": "Option A provides the optimal approach.",
+          "marks": 1
+        }
+      ],
+      "isPublished": true,
+      "id": "quiz-1789617750845-omw9u",
+      "createdAt": "2026-09-17T04:02:30.845Z"
+    }
+  ],
+  "attempts": [
+    {
+      "userId": "user-student-1",
+      "userName": "Alex Rivera",
+      "userEmail": "student@eduquiz.com",
+      "quizId": "quiz-1789617750845-omw9u",
+      "quizTitle": "Chemistry",
+      "score": 1,
+      "totalMarks": 1,
+      "percentage": 100,
+      "passed": true,
+      "correctAnswersCount": 1,
+      "incorrectAnswersCount": 0,
+      "unansweredCount": 0,
+      "timeSpentSeconds": 7,
+      "answers": [
+        {
+          "questionId": "q-1789617749697-1",
+          "selectedOptionIndex": 0,
+          "isCorrect": true,
+          "marksAwarded": 1,
+          "explanation": "Option A provides the optimal approach."
+        }
+      ],
+      "emailNotification": {
+        "sentToUser": true,
+        "sentToAdmin": true,
+        "userEmail": "student@eduquiz.com",
+        "adminEmail": "mf0622192@gmail.com",
+        "timestamp": "2026-09-17T04:05:58.623Z"
+      },
+      "id": "att-1789617952872-iq0fq",
+      "submittedAt": "2026-09-17T04:05:52.872Z"
+    }
+  ],
+  "emailLogs": [
+    {
+      "attemptId": "att-1789617952872-iq0fq",
+      "recipientEmail": "mf0622192@gmail.com",
+      "recipientType": "admin",
+      "subject": "[EduQuiz Admin] Attempt Logged: Alex Rivera scored 100% in Chemistry",
+      "snippet": "Admin copy: Alex Rivera finished Chemistry (100%)",
+      "htmlContent": "\n<!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"utf-8\">\n  <title>EduQuiz Portal - Admin Notice</title>\n  <style>\n    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f8fafc; padding: 24px; color: #1e293b; margin: 0; }\n    .card { max-width: 600px; margin: 0 auto; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 10px; overflow: hidden; }\n    .banner { background: #0f172a; color: #ffffff; padding: 20px 24px; border-bottom: 3px solid #3b82f6; }\n    .banner h2 { margin: 0; font-size: 18px; }\n    .body { padding: 24px; }\n    .item { margin-bottom: 12px; font-size: 14px; }\n    .label { font-weight: 600; color: #475569; display: inline-block; width: 140px; }\n    .val { color: #0f172a; font-weight: 500; }\n    .score-box { margin: 16px 0; padding: 14px; background: #f1f5f9; border-radius: 6px; text-align: center; }\n    .footer { padding: 16px 24px; background: #f8fafc; border-top: 1px solid #e2e8f0; font-size: 12px; color: #64748b; }\n  </style>\n</head>\n<body>\n  <div class=\"card\">\n    <div class=\"banner\">\n      <h2>[Admin Notification] New Quiz Submission</h2>\n      <p style=\"margin: 4px 0 0; font-size: 13px; color: #94a3b8;\">EduQuiz Portal Automated Dispatch</p>\n    </div>\n    <div class=\"body\">\n      <p style=\"margin-top: 0; font-size: 14px; color: #334155;\">A user has completed an assessment on the platform. The attempt records have been stored in the database.</p>\n      \n      <div class=\"score-box\">\n        <span style=\"font-size: 12px; text-transform: uppercase; color: #64748b; letter-spacing: 1px;\">Candidate Result</span>\n        <div style=\"font-size: 28px; font-weight: 700; color: #10b981; margin: 4px 0;\">\n          100% (1/1 Marks)\n        </div>\n        <div style=\"font-size: 12px; font-weight: 600; color: #475569;\">Status: PASSED</div>\n      </div>\n\n      <div class=\"item\"><span class=\"label\">Candidate Name:</span> <span class=\"val\">Alex Rivera</span></div>\n      <div class=\"item\"><span class=\"label\">Candidate Email:</span> <span class=\"val\">student@eduquiz.com</span></div>\n      <div class=\"item\"><span class=\"label\">Quiz Title:</span> <span class=\"val\">Chemistry</span></div>\n      <div class=\"item\"><span class=\"label\">Correct Answers:</span> <span class=\"val\">1 / 1</span></div>\n      <div class=\"item\"><span class=\"label\">Time Taken:</span> <span class=\"val\">7s</span></div>\n      <div class=\"item\"><span class=\"label\">Attempt ID:</span> <span class=\"val\"><code>att-1789617952872-iq0fq</code></span></div>\n      <div class=\"item\"><span class=\"label\">Date & Time:</span> <span class=\"val\">9/17/2026, 4:05:52 AM</span></div>\n    </div>\n    <div class=\"footer\">\n      EduQuiz Portal Administration & Audit Log • Confidential internal copy\n    </div>\n  </div>\n</body>\n</html>\n",
+      "status": "sent",
+      "id": "email-1789617958623-19l3",
+      "timestamp": "2026-09-17T04:05:58.623Z"
+    },
+    {
+      "attemptId": "att-1789617952872-iq0fq",
+      "recipientEmail": "student@eduquiz.com",
+      "recipientType": "user",
+      "subject": "[EduQuiz Portal] Assessment Results: Chemistry (100%)",
+      "snippet": "Score report for Chemistry: 100% (1/1 Marks)",
+      "htmlContent": "\n<!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"utf-8\">\n  <title>EduQuiz Portal - Score Report</title>\n  <style>\n    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f1f5f9; margin: 0; padding: 24px; color: #1e293b; }\n    .container { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.06); border: 1px solid #e2e8f0; }\n    .header { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: #ffffff; padding: 28px 32px; text-align: center; }\n    .header-badge { display: inline-block; background: rgba(255,255,255,0.15); font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; padding: 4px 12px; border-radius: 20px; margin-bottom: 8px; font-weight: 600; color: #38bdf8; }\n    .header h1 { margin: 0; font-size: 24px; font-weight: 700; }\n    .header p { margin: 6px 0 0; color: #94a3b8; font-size: 14px; }\n    .content { padding: 32px; }\n    .greeting { font-size: 17px; font-weight: 600; color: #0f172a; margin-bottom: 8px; }\n    .intro { color: #475569; font-size: 14px; line-height: 1.6; margin-bottom: 24px; }\n    .score-card { background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 10px; padding: 20px; text-align: center; margin-bottom: 24px; }\n    .score-percentage { font-size: 42px; font-weight: 800; color: #10b981; margin: 4px 0; }\n    .score-sub { font-size: 14px; font-weight: 600; color: #334155; }\n    .status-badge { display: inline-block; background: #10b981; color: #ffffff; font-weight: 700; font-size: 12px; padding: 4px 14px; border-radius: 9999px; margin-top: 8px; text-transform: uppercase; letter-spacing: 0.5px; }\n    .metrics-grid { display: table; width: 100%; border-collapse: separate; border-spacing: 10px; margin-bottom: 24px; }\n    .metric-cell { display: table-cell; width: 33.3%; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 10px; text-align: center; vertical-align: middle; }\n    .metric-value { font-size: 20px; font-weight: 700; color: #0f172a; }\n    .metric-label { font-size: 11px; text-transform: uppercase; color: #64748b; margin-top: 4px; font-weight: 600; }\n    .details-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; font-size: 13px; }\n    .details-table td { padding: 10px 12px; border-bottom: 1px solid #f1f5f9; }\n    .details-table td:first-child { color: #64748b; font-weight: 500; width: 38%; }\n    .details-table td:last-child { color: #0f172a; font-weight: 600; text-align: right; }\n    .cta-container { text-align: center; margin-top: 28px; }\n    .cta-btn { display: inline-block; background: #2563eb; color: #ffffff !important; text-decoration: none; padding: 12px 28px; border-radius: 8px; font-weight: 600; font-size: 14px; }\n    .footer { background: #f8fafc; border-top: 1px solid #e2e8f0; padding: 20px 32px; text-align: center; font-size: 12px; color: #94a3b8; }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <div class=\"header\">\n      <div class=\"header-badge\">Automated Assessment Notice</div>\n      <h1>EduQuiz Portal</h1>\n      <p>Official Performance & Score Report</p>\n    </div>\n    <div class=\"content\">\n      <div class=\"greeting\">Hello Alex Rivera,</div>\n      <div class=\"intro\">\n        Your assessment for <strong>\"Chemistry\"</strong> has been submitted and automatically evaluated. Here is your comprehensive evaluation summary:\n      </div>\n\n      <div class=\"score-card\">\n        <div class=\"score-sub\">FINAL SCORE</div>\n        <div class=\"score-percentage\">100%</div>\n        <div class=\"score-sub\">1 out of 1 Marks</div>\n        <div class=\"status-badge\">PASSED ✓</div>\n      </div>\n\n      <div class=\"metrics-grid\">\n        <div class=\"metric-cell\">\n          <div class=\"metric-value\" style=\"color: #10b981;\">1</div>\n          <div class=\"metric-label\">Correct</div>\n        </div>\n        <div class=\"metric-cell\">\n          <div class=\"metric-value\" style=\"color: #ef4444;\">0</div>\n          <div class=\"metric-label\">Incorrect</div>\n        </div>\n        <div class=\"metric-cell\">\n          <div class=\"metric-value\" style=\"color: #64748b;\">0</div>\n          <div class=\"metric-label\">Unanswered</div>\n        </div>\n      </div>\n\n      <table class=\"details-table\">\n        <tr>\n          <td>Quiz Title</td>\n          <td>Chemistry</td>\n        </tr>\n        <tr>\n          <td>Time Spent</td>\n          <td>7s</td>\n        </tr>\n        <tr>\n          <td>Submission Timestamp</td>\n          <td>Thu, 17 Sep 2026 04:05:52 GMT</td>\n        </tr>\n        <tr>\n          <td>Attempt Reference ID</td>\n          <td><code style=\"font-family: monospace; font-size: 11px; background: #e2e8f0; padding: 2px 6px; border-radius: 4px;\">att-1789617952872-iq0fq</code></td>\n        </tr>\n      </table>\n\n      <div class=\"cta-container\">\n        <p style=\"font-size: 13px; color: #64748b; margin-bottom: 12px;\">You can view the detailed answer breakdown and explanations inside your portal dashboard.</p>\n      </div>\n    </div>\n    <div class=\"footer\">\n      <p style=\"margin: 0 0 6px;\">This is an automated notification from <strong>EduQuiz Portal</strong>.</p>\n      <p style=\"margin: 0;\">Designed for high-integrity academic and technical skill assessments.</p>\n    </div>\n  </div>\n</body>\n</html>\n",
+      "status": "sent",
+      "id": "email-1789617955515-pliy",
+      "timestamp": "2026-09-17T04:05:55.515Z"
+    }
+  ],
   "messages": [
     {
       "senderId": "user-student-1",

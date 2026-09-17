@@ -1,9 +1,9 @@
 import express from 'express';
 import http from 'http';
 import path from 'path';
+import fs from 'fs';
 import dotenv from 'dotenv';
-import { createServer as createViteServer } from 'vite';
-import { apiRouter } from './server/routes';
+import { apiRouter } from './server/routes.ts';
 
 // Load environment variables
 dotenv.config();
@@ -21,8 +21,8 @@ async function startServer() {
   // API Routes MUST come first before Vite middleware
   app.use('/api', apiRouter);
 
-  // Health check endpoint
-  app.get('/api/health', (req, res) => {
+  // Health check endpoint (both /api/health and /health for container readiness probes)
+  app.get(['/api/health', '/health'], (req, res) => {
     res.json({
       status: 'online',
       service: 'EduQuiz Portal API',
@@ -32,6 +32,7 @@ async function startServer() {
 
   // Vite middleware for development
   if (process.env.NODE_ENV !== 'production') {
+    const { createServer: createViteServer } = await import('vite');
     const vite = await createViteServer({
       server: {
         middlewareMode: true,
@@ -42,10 +43,15 @@ async function startServer() {
     app.use(vite.middlewares);
   } else {
     // Production static file serving
-    const distPath = path.join(process.cwd(), 'dist');
+    const distPath = path.resolve(process.cwd(), 'dist');
     app.use(express.static(distPath));
     app.get('*', (req, res) => {
-      res.sendFile(path.join(distPath, 'index.html'));
+      const indexPath = path.resolve(distPath, 'index.html');
+      if (fs.existsSync(indexPath)) {
+        res.sendFile(indexPath);
+      } else {
+        res.status(404).send('Application bundle index.html not found. Please run npm run build.');
+      }
     });
   }
 

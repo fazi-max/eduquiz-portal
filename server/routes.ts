@@ -1,7 +1,10 @@
-import { Router, Response } from 'express';
-import { db, QuizAttempt } from './db';
-import { hashPassword, comparePassword, generateToken, authenticateToken, requireAdmin, AuthenticatedRequest, optionalAuth } from './auth';
-import { sendQuizCompletionNotifications, sendTestEmail, sendUserInquiryToAdmin } from './mailer';
+import { Router } from 'express';
+import type { Response } from 'express';
+import { db } from './db.ts';
+import type { QuizAttempt } from './db.ts';
+import { hashPassword, comparePassword, generateToken, authenticateToken, requireAdmin, optionalAuth } from './auth.ts';
+import type { AuthenticatedRequest } from './auth.ts';
+import { sendQuizCompletionNotifications, sendTestEmail, sendUserInquiryToAdmin } from './mailer.ts';
 
 export const apiRouter = Router();
 

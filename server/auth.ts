@@ -1,7 +1,7 @@
-import { Request, Response, NextFunction } from 'express';
+import type { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
-import { db } from './db';
+import { db } from './db.ts';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'eduquiz_super_secret_jwt_key_2026_dev_mode';
 
